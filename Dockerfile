@@ -2,6 +2,8 @@
 FROM eclipse-temurin:17-jdk as builder
 WORKDIR /app
 COPY . .
+# Donner les permissions d'exécution à mvnw
+RUN chmod +x mvnw
 RUN ./mvnw clean package -DskipTests
 
 # Étape 2 : Image finale pour exécuter l'application
